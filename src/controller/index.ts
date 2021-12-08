@@ -5,6 +5,7 @@ import { render } from 'ssr-core-react'
 import { IApiService } from '../interface'
 import axios from 'axios'
 
+
 interface IEggContext extends Context {
   apiService: IApiService
   // apiDeatilservice: IApiDetailService
