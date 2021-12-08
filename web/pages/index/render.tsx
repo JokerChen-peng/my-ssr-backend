@@ -25,12 +25,8 @@ const render =(item: Schema,index: number)=>{
 
 export default function Home (props:SProps) {
   const {state} = useContext<IContext<IData>>(STORE_CONTEXT)
-  const [pageSchema,setPageSchema] =useState<PartialSchema>({})
+  const [pageSchema] =useState<PartialSchema>(parseJsonByString(state?.indexData?.schema as string,{}))
   const {children=[],attributes={}} = pageSchema
- useEffect(()=>{
-   const data =state?.indexData?.schema
-   data&&setPageSchema(parseJsonByString(data,{}))
- },[])
   return (<HelmetProvider>
     <Helmet>
       <title>{attributes?.title||''}</title>
