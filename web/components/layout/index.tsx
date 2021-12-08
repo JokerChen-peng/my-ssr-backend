@@ -20,6 +20,8 @@ const Layout = (props: LayoutProps) => {
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
         <meta name='theme-color' content='#000000' />
         <title>{attributes?.title}</title>
+         <meta name='keywords' content={attributes?.keyword}/>
+         <meta name='description' content={attributes?.desc}/>
         { injectCss }
       </head>
       <body>
