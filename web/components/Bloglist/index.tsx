@@ -34,7 +34,7 @@ const ListItem = styled.li`
   margin-top: 10px;
 `
 const Img = styled.img`
-display: block;
+ display: block;
  width: 240px;
  height:135px;
  margin:0 auto;

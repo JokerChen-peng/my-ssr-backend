@@ -4,11 +4,12 @@ import { Context } from 'egg'
 import { render } from 'ssr-core-react'
 import { IApiService } from '../interface'
 import axios from 'axios'
+import { IApiDetailService } from '@/interface/detail'
 
 
 interface IEggContext extends Context {
   apiService: IApiService
-  // apiDeatilservice: IApiDetailService
+  apiDeatilservice: IApiDetailService
 }
 
 @Provide()
@@ -20,15 +21,16 @@ export class Index {
   @Inject('ApiService')
   apiService: IApiService
 
-  // @Inject('ApiDetailService')
-  // apiDeatilservice: IApiDetailService
+  @Inject('ApiDetailService')
+  apiDeatilservice: IApiDetailService
 
   @Get('/')
   @Get('/404')
+  @Get('/detail/:id')
   async handler (): Promise<void> {
     try {
       this.ctx.apiService = this.apiService
-      // this.ctx.apiDeatilservice = this.apiDeatilservice
+      this.ctx.apiDeatilservice = this.apiDeatilservice
       const stream = await render<Readable>(this.ctx, {
         stream: true
       })

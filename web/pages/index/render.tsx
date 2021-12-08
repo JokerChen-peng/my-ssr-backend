@@ -3,7 +3,7 @@ import { Banner } from '@/components/Banner'
 import { BlogList } from '@/components/Bloglist'
 import { parseJsonByString } from '@/components/common/utils'
 import { Footer } from '@/components/Footer'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import { SProps, IContext } from 'ssr-types-react'
 import { STORE_CONTEXT } from '_build/create-context'
 import {IData, PartialSchema, Schema} from '../../interface/page-index'
@@ -24,7 +24,7 @@ const render =(item: Schema,index: number)=>{
 
 export default function Home (props:SProps) {
   const {state} = useContext<IContext<IData>>(STORE_CONTEXT)
-  const [pageSchema] =useState<PartialSchema>(parseJsonByString(state?.indexData?.schema as string,{}))
+  const pageSchema =useMemo<PartialSchema>(()=>parseJsonByString(state?.indexData?.schema as string,{}),[state])
   const {children=[]} = pageSchema
   return (<>
     {
