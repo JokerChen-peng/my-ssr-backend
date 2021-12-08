@@ -24,7 +24,7 @@ export class Index {
   // apiDeatilservice: IApiDetailService
 
   @Get('/')
-  // @Get('/detail/:id')
+  @Get('/404')
   async handler (): Promise<void> {
     try {
       this.ctx.apiService = this.apiService

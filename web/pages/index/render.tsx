@@ -25,10 +25,8 @@ const render =(item: Schema,index: number)=>{
 export default function Home (props:SProps) {
   const {state} = useContext<IContext<IData>>(STORE_CONTEXT)
   const [pageSchema] =useState<PartialSchema>(parseJsonByString(state?.indexData?.schema as string,{}))
-  const {children=[],attributes={}} = pageSchema
+  const {children=[]} = pageSchema
   return (<>
-      <title>{attributes?.title||''}</title>
-
     {
       children.map((item,index)=>{
         return render(item,index)
