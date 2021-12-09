@@ -6,14 +6,19 @@ import { Wrapper } from '../common/utils'
 interface ListProps {
   schema:Schema
 }
+type imgProps = {
+  imgHeight?: string
+  imgWidth?: string
+}
 export const BlogList = ({schema}:ListProps) => {
   const {children=[]} = schema;
+
   return(<Wrapper>
     <List>
-    {children.map(({attributes:{imgeUrl,title,description,link}},index)=>(
+    {children.map(({attributes:{imgeUrl,title,description,link,height,width}},index)=>(
       <ListItem key={index}>
         <Link href={link} target='_blank' rel='noreferrer'>
-        <Img src={imgeUrl} alt={title} />
+        <Img src={imgeUrl} alt={title} imgHeight={height} imgWidth={width}/>
         <Title>{title||'暂无标题'}</Title>
         <Desc>{description||'暂无标题'}</Desc>
         </Link>
@@ -33,10 +38,10 @@ const ListItem = styled.li`
   width:20%;
   margin-top: 10px;
 `
-const Img = styled.img`
+const Img = styled.img<imgProps>`
  display: block;
- width: 240px;
- height:135px;
+ width: ${props=>props.imgWidth};
+ height:${props=>props.imgHeight};
  margin:0 auto;
  border-radius: 10px;
 `
