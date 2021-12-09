@@ -3,8 +3,9 @@ import { Controller, Get, Provide, Inject } from '@midwayjs/decorator'
 import { Context } from 'egg'
 import { render } from 'ssr-core-react'
 import { IApiService } from '../interface'
-import axios from 'axios'
+// import axios from 'axios'
 import { IApiDetailService } from '@/interface/detail'
+import axios from 'axios'
 
 
 interface IEggContext extends Context {

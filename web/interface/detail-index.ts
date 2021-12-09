@@ -1,7 +1,11 @@
+
+
 export interface Ddata {
-  detailData?: {
-    data: any[]
-  }
+  detailData?: DetailData
+
+
 }
-
-
+export  interface DetailData{
+    id:string;
+    descObject:string;
+}
