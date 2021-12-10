@@ -17,7 +17,6 @@ export class DetailController {
   @Get('/getDetail')
   async getDetail(@Query() id: string) {
       const result =  await this.detailService.find(id);
-      console.log('result: ', result);
       return getStandardResponse(true,result)
   } 
 

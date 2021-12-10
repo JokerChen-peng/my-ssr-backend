@@ -29,6 +29,7 @@ export class DetailService {
     // find first
     const detailResult = await this.detailModel.findOne({id});
     detailResult.descObject = descObject
+    await this.detailModel.save(detailResult);
     return detailResult
  }
  

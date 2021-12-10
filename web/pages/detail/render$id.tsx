@@ -8,10 +8,8 @@ import { STORE_CONTEXT } from '_build/create-context'
 
 export default function Detail (props: SProps) {
   const { state } = useContext<IContext<Ddata>>(STORE_CONTEXT)
-  console.log('state: ', state?.detailData?.descObject);
+  const detailHtml =useMemo<any>(()=>parseJsonByString(state?.detailData?.descObject as string,{}),[state])
   return (
-    <div>
-    <div>{state?.detailData?.descObject||'暂无'}</div>
-    </div>
+    <div dangerouslySetInnerHTML={{__html: detailHtml}}></div>
   )
 }
