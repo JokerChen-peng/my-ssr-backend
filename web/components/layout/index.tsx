@@ -6,6 +6,7 @@ import { LayoutProps } from 'ssr-types-react'
 import { parseJsonByString } from '../common/utils'
 import App from './App'
 
+
 const Layout = (props: LayoutProps) => {
   // 注：Layout 只会在服务端被渲染，不要在此运行客户端有关逻辑
   const {state} = useContext(STORE_CONTEXT)
