@@ -15,6 +15,7 @@ export class DetailService {
     const detail = new Detail();
     detail.id = id;
     detail.descObject = descObject;
+    detail.basicObject = "默认信息";
     // save entity
     const detailResult = await this.detailModel.save(detail);
     // save success
@@ -32,5 +33,23 @@ export class DetailService {
     await this.detailModel.save(detailResult);
     return detailResult
  }
+ async saveBaisc(id:string,baiscObject:string){
+   // create a entity object
+   const detail = new Detail();
+   detail.id = id;
+   detail.basicObject = baiscObject;
+   detail.descObject = "默认信息";
+   // save entity
+   const detailResult = await this.detailModel.save(detail);
+   // save success
+   return detailResult
+ }
+ async updateBaisc(id:string,basicObject:string){
+   // find first
+   const detailResult = await this.detailModel.findOne({id});
+   detailResult.basicObject = basicObject
+   await this.detailModel.save(detailResult);
+   return detailResult
+}
  
 }

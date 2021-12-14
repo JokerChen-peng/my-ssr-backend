@@ -8,4 +8,5 @@ export interface Ddata {
 export  interface DetailData{
     id:string;
     descObject:string;
+    basicObject:string;
 }

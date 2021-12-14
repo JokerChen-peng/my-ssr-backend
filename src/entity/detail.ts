@@ -10,4 +10,7 @@ export class Detail {
 
   @Column('text')
   descObject:string
+
+  @Column('text')
+  basicObject:string
 }

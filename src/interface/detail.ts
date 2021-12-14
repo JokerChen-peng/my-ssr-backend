@@ -4,5 +4,6 @@ export interface IApiDetailService {
 }
 export interface BodyObj {
   id: string;
-  descObject:string;
+  descObject?:string;
+  basicObject?:string
 }
