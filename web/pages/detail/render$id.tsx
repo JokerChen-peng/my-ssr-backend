@@ -14,16 +14,8 @@ const Container = styled.div`
 `
 export default function Detail (props: SProps) {
   const { state } = useContext<IContext<Ddata>>(STORE_CONTEXT)
-  console.log(state)
   const detailHtml =useMemo<any>(()=>parseJsonByString(state?.detailData?.descObject as string,{}),[state])
-  const basicdata =useMemo<any>(()=>parseJsonByString(state?.detailData?.basicObject as string,{}),[state])
-
   return (<div>
-    <header>
-    <title>{basicdata?.title}</title>
-         <meta name='keywords' content={basicdata?.keyword}/>
-         <meta name='description' content={basicdata?.desc}/>
-    </header>
    <Container>
       <div dangerouslySetInnerHTML={{__html: detailHtml}}></div>
    </Container>

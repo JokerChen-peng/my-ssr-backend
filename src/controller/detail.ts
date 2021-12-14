@@ -44,7 +44,9 @@ export class DetailController {
   @Post("/saveBasic")
   @Validate()
   async saveBasic(@Body(ALL) bodyObj: DetailSaveBasicDTO) {
+    console.log(bodyObj)
     const find = await this.detailService.find(bodyObj.id);
+    console.log('find: ', find);
     let result;
     if (find) {
       result = await this.detailService.updateBaisc(bodyObj.id, bodyObj.basicObject);
