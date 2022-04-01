@@ -1,11 +1,7 @@
-# 官方文档
+# 青年袜袜屋
 
-官方文档请查看 [http://doc.ssr-fc.com/](http://doc.ssr-fc.com/)
 
-## getting start
+## [线上地址](http://socks.jrmoses.top/)
 
-```bash
-$ npm start # 本地开发模式运行，单进程 支持 前端 HMR 前端静态资源走本地 webpack 服务
-$ npm run prod # 模拟生产环境运行，多进程，前端资源走静态目录
-$ npm run stop # 生产环境停止服务
+## [后台管理系统仓库](https://github.com/JokerChen-peng/qingniansocksHouse)
 ```
